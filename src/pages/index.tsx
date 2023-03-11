@@ -1,25 +1,33 @@
+import Button from '@/components/button';
+import DateInfo from '@/components/date-info/date-info';
 import Header from '@/components/header';
 import Layout from '@/components/layout';
-import Head from 'next/head';
-import Image from 'next/image';
-import { FC } from 'react';
-import bannerImg from 'images/banner-2.png';
-import smallCrownImg from 'images/small-crown-2.png';
-import arrow from 'images/tribal-arrow.png';
-import monsters3 from 'images/monsters-3.png';
-import smsIcon from 'icons/sms.svg';
-import phoneIcon from 'icons/phone.svg';
-import Plx from 'react-plx';
-import dynamic from 'next/dynamic';
 import {
   bannerPlxConf,
   celebratePlxConf,
+  maxKidPlxConf,
   maxPlxConf,
+  monster1PlxConf,
+  monster2PlxConf,
+  monsterRumpusPlxConf,
   turningOnePlxConf,
   wildThingsReachPlxConf,
 } from '@/lib/plx-configs';
-import Button from '@/components/button';
-import DateInfo from '@/components/date-info/date-info';
+import phoneIcon from 'icons/phone.svg';
+import smsIcon from 'icons/sms.svg';
+import bannerImg from 'images/banner-2.png';
+import maxKid from 'images/max-kid.png';
+import monster1 from 'images/monster-1.png';
+import monster2 from 'images/monster-2.png';
+import monsters1 from 'images/monsters-1.png';
+import monsters3 from 'images/monsters-3.png';
+import smallCrownImg from 'images/small-crown-2.png';
+import arrow from 'images/tribal-arrow.png';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import Image from 'next/image';
+import { FC } from 'react';
+import Plx from 'react-plx';
 
 const LocationInfo = dynamic(() => import('../components/location-info'), { ssr: false });
 
@@ -32,6 +40,32 @@ export const Home: FC = () => {
       <main className="flex flex-col">
         <Header />
         <div className="flex flex-col p-4">
+          {/* peaking monsters */}
+          <div className="relative h-60">
+            <div className="absolute top-8 right-[-20rem] w-[25rem]">
+              <Plx parallaxData={monster1PlxConf} className="w-full">
+                <Image
+                  className=""
+                  src={monster1}
+                  width="788"
+                  height="804"
+                  alt="Monster 1 on a rumpus"
+                />
+              </Plx>
+            </div>
+            <div className="absolute top-28 left-[-13rem] w-[15rem]">
+              <Plx parallaxData={maxKidPlxConf} className="w-full">
+                <Image
+                  className="scale-x-[-1]"
+                  src={maxKid}
+                  width="316"
+                  height="550"
+                  alt="Monster 2 on a rumpus"
+                />
+              </Plx>
+            </div>
+          </div>
+
           {/* join us banner */}
           <div className="mt-60 mb-2 h-16 join-us-banner">
             <Plx parallaxData={bannerPlxConf} className="w-full">
@@ -171,6 +205,13 @@ export const Home: FC = () => {
                 </Button>
               </div>
             </div>
+          </div>
+
+          {/* bottom monsters */}
+          <div className="mt-16 mb-16 ml-[8.5rem] w-full max-w-[501px]">
+            <Plx parallaxData={monsterRumpusPlxConf} className="w-full">
+              <Image src={monsters1} width="591" height="201" alt="Monsters on a rumpus" />
+            </Plx>
           </div>
         </div>
       </main>

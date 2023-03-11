@@ -40,10 +40,51 @@ export const rightLeavesPlxConf = [
   },
 ];
 
+export const monster1PlxConf = [
+  {
+    start: 'self',
+    duration: 100,
+    startOffset: '200px',
+    properties: [
+      {
+        startValue: 0,
+        endValue: -100,
+        property: 'translateX',
+      },
+      {
+        startValue: 0,
+        endValue: -30,
+        property: 'rotate',
+      },
+    ],
+  },
+];
+
+export const maxKidPlxConf = [
+  {
+    start: 'self',
+    duration: 100,
+    startOffset: '200px',
+    properties: [
+      {
+        startValue: 0,
+        endValue: 50,
+        property: 'translateX',
+      },
+      {
+        startValue: 0,
+        endValue: 30,
+        property: 'rotate',
+      },
+    ],
+  },
+];
+
 export const bannerPlxConf = [
   {
     start: '.join-us-banner',
     duration: 200,
+    startOffset: '-100px',
     properties: [
       {
         startValue: 0.66,
@@ -125,6 +166,20 @@ export const wildThingsReachPlxConf = [
         startValue: 0,
         endValue: -100,
         property: 'translateY',
+      },
+    ],
+  },
+];
+
+export const monsterRumpusPlxConf = [
+  {
+    start: 'self',
+    duration: 300,
+    properties: [
+      {
+        startValue: 0,
+        endValue: -200,
+        property: 'translateX',
       },
     ],
   },
