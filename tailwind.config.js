@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Fredericka the Great', 'cursive'],
-        display: ['Style Script', 'cursive'],
+        primary: ['Amatic SC', 'cursive'],
+        display: ['Dancing Script', 'cursive'],
       },
       colors: {
         primary: {

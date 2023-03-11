@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+PRODID:-//AddEvent Inc//AddEvent.com v1.7//EN
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:STANDARD
+DTSTART:20231105T010000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20230312T030000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20230311T061627Z
+STATUS:CONFIRMED
+UID:1678515387addeventcom
+SEQUENCE:0
+DTSTART;TZID=America/Los_Angeles:20230422T120000
+DTEND;TZID=America/Los_Angeles:20230423T030000
+SUMMARY:Max Turns 1: Let the wild rumpus start!
+DESCRIPTION:Come join us for mischief of some kind or another while we celebrate Maxwell William Jacobs turning 1 years old! We'll have food\, treats and fun activities. Get more information or RSVP here http://maxwjacobs.com!\n\n------\n\nPowered by addevent.com \nShare your next event with us!\n
+X-ALT-DESC;FMTTYPE=text/html:Come join us for mischief of some kind or another while we celebrate <strong>Maxwell William Jacobs</strong> turning <u>1 years old</u>! We'll have food, treats and fun activities. Get <a href="http://maxwjacobs.com">more information or RSVP here</a>!<br /><br />------<br /><br />Powered by addevent.com <br>Share your next event with us!<br>
+LOCATION:32062 Pleasant Glen\, Trabuco Canyon\, 92679\, CA\, USA
+BEGIN:VALARM
+TRIGGER:-PT1440M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

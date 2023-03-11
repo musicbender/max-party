@@ -9,6 +9,11 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
+"@csstools/selector-specificity@^2.0.0":
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.1.1.tgz#c9c61d9fe5ca5ac664e1153bb0aa0eba1c6d6308"
+  integrity sha512-jwx+WCqszn53YHOfvFMJJRd/B2GqkCBt+1MJSG6o5/s8+ytHMvDZXsJgUEWLk12UnLd7HYKac4BYU5i/Ron1Cw==
+
 "@eslint/eslintrc@^1.4.1":
   version "1.4.1"
   resolved "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.4.1.tgz#af58772019a2d271b7e2d4c23ff4ddcba3ccfb3e"
@@ -923,6 +928,11 @@ eslint-config-next@13.1.6:
     eslint-plugin-jsx-a11y "^6.5.1"
     eslint-plugin-react "^7.31.7"
     eslint-plugin-react-hooks "^4.5.0"
+
+eslint-config-postcss@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/eslint-config-postcss/-/eslint-config-postcss-4.0.0.tgz#dda9acb7ce25323b4ef3fefb51a27a0d67a9d2c0"
+  integrity sha512-vOvKpJ6xnuveq6wCDzyg/M6ZguqpxILdLmi6jLuJy92aN0bwygkGkUGc/m3TP0kvGo9BofbrhtX/DFPZ9kTp4Q==
 
 eslint-config-prettier@^8.6.0:
   version "8.6.0"
@@ -2191,6 +2201,14 @@ postcss-nested@6.0.0:
   resolved "https://registry.npmjs.org/postcss-nested/-/postcss-nested-6.0.0.tgz#1572f1984736578f360cffc7eb7dca69e30d1735"
   integrity sha512-0DkamqrPcmkBDsLn+vQDIrtkSbNkv5AD/M322ySo9kqFkCIYklym2xEmWkwo+Y3/qZo34tzEPNUw4y7yMCdv5w==
   dependencies:
+    postcss-selector-parser "^6.0.10"
+
+postcss-nesting@^11.2.1:
+  version "11.2.1"
+  resolved "https://registry.npmjs.org/postcss-nesting/-/postcss-nesting-11.2.1.tgz#260806f20971c82700d327468b49d1c1b44f1790"
+  integrity sha512-E6Jq74Jo/PbRAtZioON54NPhUNJYxVWhwxbweYl1vAoBYuGlDIts5yhtKiZFLvkvwT73e/9nFrW3oMqAtgG+GQ==
+  dependencies:
+    "@csstools/selector-specificity" "^2.0.0"
     postcss-selector-parser "^6.0.10"
 
 postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.11:

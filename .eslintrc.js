@@ -9,6 +9,7 @@ module.exports = {
     'next',
     'next/core-web-vitals',
     'plugin:react/recommended',
+    'eslint-config-postcss',
     'plugin:prettier/recommended',
   ],
   parserOptions: {
