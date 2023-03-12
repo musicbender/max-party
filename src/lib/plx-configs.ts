@@ -44,7 +44,7 @@ export const monster1PlxConf = [
   {
     start: 'self',
     duration: 100,
-    startOffset: '200px',
+    startOffset: 200,
     properties: [
       {
         startValue: 0,
@@ -64,7 +64,7 @@ export const maxKidPlxConf = [
   {
     start: 'self',
     duration: 100,
-    startOffset: '200px',
+    startOffset: 200,
     properties: [
       {
         startValue: 0,
@@ -84,7 +84,7 @@ export const bannerPlxConf = [
   {
     start: '.join-us-banner',
     duration: 200,
-    startOffset: '-100px',
+    startOffset: -100,
     properties: [
       {
         startValue: 0.66,

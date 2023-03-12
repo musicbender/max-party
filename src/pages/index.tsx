@@ -8,7 +8,6 @@ import {
   maxKidPlxConf,
   maxPlxConf,
   monster1PlxConf,
-  monster2PlxConf,
   monsterRumpusPlxConf,
   turningOnePlxConf,
   wildThingsReachPlxConf,
@@ -18,11 +17,12 @@ import smsIcon from 'icons/sms.svg';
 import bannerImg from 'images/banner-2.png';
 import maxKid from 'images/max-kid.png';
 import monster1 from 'images/monster-1.png';
-import monster2 from 'images/monster-2.png';
 import monsters1 from 'images/monsters-1.png';
 import monsters3 from 'images/monsters-3.png';
 import smallCrownImg from 'images/small-crown-2.png';
 import arrow from 'images/tribal-arrow.png';
+import { GetServerSideProps } from 'next';
+import { AppContext } from 'next/app';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -31,7 +31,11 @@ import Plx from 'react-plx';
 
 const LocationInfo = dynamic(() => import('../components/location-info'), { ssr: false });
 
-export const Home: FC = () => {
+type Props = {
+  inviteId: string;
+};
+
+export const Home: FC<Props> = ({ inviteId }) => {
   return (
     <Layout>
       <Head>
@@ -124,7 +128,12 @@ export const Home: FC = () => {
           </div>
 
           {/* rsvp CTA */}
-          <Button className="m-auto mb-32 rsvp-cta" variant="primary" size="big">
+          <Button
+            href={`/rsvp/${inviteId}`}
+            className="m-auto mb-32 rsvp-cta"
+            variant="primary"
+            size="big"
+          >
             RSVP Now
           </Button>
 
@@ -217,6 +226,27 @@ export const Home: FC = () => {
       </main>
     </Layout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<Props> = async ({ query, res }) => {
+  const { inviteId } = query;
+
+  // api call to airtable to check if invite id exists
+
+  if (!inviteId) {
+    return {
+      redirect: {
+        destination: '/access-denied',
+        permanent: true,
+      },
+    };
+  }
+
+  return {
+    props: {
+      inviteId: inviteId as string,
+    },
+  };
 };
 
 export default Home;
