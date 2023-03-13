@@ -83,12 +83,13 @@
   }
 
   .form-box {
-    width: 20rem;
-    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 40rem;
     border: 2px solid rgb(40, 40, 40);
     margin: 0 auto;
     border-radius: 0.5rem;
     text-align: center;
+    @apply px-8 py-16;
   }
 
   .go-back {

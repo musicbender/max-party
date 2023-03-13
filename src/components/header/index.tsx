@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { FC } from 'react';
 
-import crownImg from 'images/crown-2.png';
-import topLeaves from 'images/top_leaves.png';
-import rightLeaves from 'images/right_leaves.png';
-import leftLeaves from 'images/left_leaves.png';
-import Plx from 'react-plx';
 import { leftLeavesPlxConf, rightLeavesPlxConf, topLeavesPlxConf } from '@/lib/plx-configs';
+import crownImg from 'images/crown-2.png';
+import leftLeaves from 'images/left_leaves.png';
+import rightLeaves from 'images/right_leaves.png';
+import topLeaves from 'images/top_leaves.png';
+import Plx from 'react-plx';
 
 type Props = {
   children?: React.ReactNode;
@@ -15,8 +15,11 @@ type Props = {
 export const Header: FC<Props> = () => {
   return (
     <div className="relative">
-      <Plx parallaxData={topLeavesPlxConf} className="absolute left-0 top-0 h-[16rem] w-full">
-        <Image src={topLeaves} className="w-full" width="130" alt="Wild crown" />
+      <Plx
+        parallaxData={topLeavesPlxConf}
+        className="absolute left-0 top-0 h-[16rem] w-full md:hidden"
+      >
+        <Image src={topLeaves} className="w-full" width="1500" alt="Leaves top" />
       </Plx>
       <Plx parallaxData={rightLeavesPlxConf} className="absolute right-0 top-0 h-[40rem]">
         <Image src={rightLeaves} width="130" alt="Wild crown" />
@@ -24,6 +27,13 @@ export const Header: FC<Props> = () => {
       <Plx parallaxData={leftLeavesPlxConf} className="absolute top-0 h-[40rem] w-64">
         <Image src={leftLeaves} width="130" alt="Wild crown" />
       </Plx>
+      <div className="hidden md:flex md:flex-row">
+        <Image src={topLeaves} className="w-[600px]" width="1500" alt="Leaves top" />
+        <Image src={topLeaves} className="w-[600px] ml-[-5rem]" width="1500" alt="Leaves top" />
+        <Image src={topLeaves} className="w-[600px] ml-[-5rem]" width="1500" alt="Leaves top" />
+        <Image src={topLeaves} className="w-[600px]" width="1500" alt="Leaves top" />
+      </div>
+
       <div className="p-4">
         <div className="max-w-[85%] text-center mx-auto mt-[45vh]">
           <h1 className="text-6xl">AND NOW</h1>

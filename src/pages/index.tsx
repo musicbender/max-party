@@ -22,7 +22,6 @@ import monsters3 from 'images/monsters-3.png';
 import smallCrownImg from 'images/small-crown-2.png';
 import arrow from 'images/tribal-arrow.png';
 import { GetServerSideProps } from 'next';
-import { AppContext } from 'next/app';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Image from 'next/image';

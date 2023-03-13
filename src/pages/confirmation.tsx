@@ -20,7 +20,7 @@ export const Confirmation: FC<Props> = ({ accepted }) => {
         <title>See you at Max's First Birthday!</title>
       </Head>
       <main className="flex flex-col">
-        <div className="flex flex-col h-[100vh] overflow-hidden">
+        <div className="flex flex-col h-[100vh] overflow-hidden p-4">
           <div className="form-box mt-12 mb-8">
             <h1 className="mb-4">You're all set!</h1>
             <h2 className="text-primary-600 font-display mb-4">

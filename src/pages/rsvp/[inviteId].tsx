@@ -50,7 +50,7 @@ export const Rsvp: FC<Props> = ({ inviteId }) => {
         <title>RSVP For Max's First Birthday!</title>
       </Head>
       <main className="flex flex-col">
-        <div className="flex flex-col h-[100vh] overflow-hidden">
+        <div className="flex flex-col h-[100vh] overflow-hidden p-4">
           <a href={`/?inviteId=${inviteId}`} className="go-back mt-2 ml-2">
             go back
           </a>
