@@ -35,7 +35,7 @@ export const Header: FC<Props> = () => {
       </div>
 
       <div className="p-4">
-        <div className="max-w-[85%] text-center mx-auto mt-[45vh]">
+        <div className="max-w-[85%] text-center mx-auto mt-[45vh] md:mt-[10vh]">
           <h1 className="text-6xl">AND NOW</h1>
           <h1 className="text-6xl">LET THE</h1>
           <div className="mx-auto my-2 relative h-[9rem] rotate-12">

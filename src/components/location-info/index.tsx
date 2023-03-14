@@ -20,7 +20,7 @@ export const LocationInfo: FC<Props> = () => {
           <span className="block">Trabuco Canyon, CA 92679</span>
         </a>
       </div>
-      <div className="text-center mb-8">
+      <div className="text-center mb-11">
         <Button href={mapsLink}>Get directions</Button>
       </div>
     </div>

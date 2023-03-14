@@ -39,7 +39,7 @@ type Props = {
 };
 
 export const Home: FC<Props> = ({ inviteId }) => {
-  const { isLoading, data } = useGetInviteQuery(inviteId);
+  const { data } = useGetInviteQuery(inviteId);
   return (
     <Layout>
       <Head>
@@ -166,35 +166,49 @@ export const Home: FC<Props> = ({ inviteId }) => {
           </div>
 
           {/* info section */}
-          <Image
-            className="m-auto w-[20rem] my-4"
-            src={arrow}
-            width="300"
-            height="12"
-            alt="Arrow divider"
-          />
+          <div className="md:flex m-auto">
+            {/* date info */}
+            <div>
+              <Image
+                className="m-auto w-[20rem] my-4"
+                src={arrow}
+                width="300"
+                height="12"
+                alt="Arrow divider"
+              />
 
-          {/* date info */}
-          <DateInfo />
+              <DateInfo />
 
-          <Image
-            className="m-auto w-[20rem] my-4 scale-x-[-1]"
-            src={arrow}
-            width="300"
-            height="12"
-            alt="Arrow divider"
-          />
+              <Image
+                className="m-auto w-[20rem] my-4 scale-x-[-1]"
+                src={arrow}
+                width="300"
+                height="12"
+                alt="Arrow divider"
+              />
+            </div>
 
-          {/* location info */}
-          <LocationInfo />
+            {/* location info */}
+            <div>
+              <Image
+                className="hidden m-auto w-[20rem] my-4 md:block"
+                src={arrow}
+                width="300"
+                height="12"
+                alt="Arrow divider"
+              />
 
-          <Image
-            className="m-auto w-[20rem] mt-4 mb-24"
-            src={arrow}
-            width="300"
-            height="12"
-            alt="Arrow divider"
-          />
+              <LocationInfo />
+
+              <Image
+                className="m-auto w-[20rem] mt-4 mb-24 md:scale-x-[-1]"
+                src={arrow}
+                width="300"
+                height="12"
+                alt="Arrow divider"
+              />
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 max-w-2xl m-auto gap-4 md:gap-8">
             <div>
@@ -233,7 +247,7 @@ export const Home: FC<Props> = ({ inviteId }) => {
           </div>
 
           {/* bottom monsters */}
-          <div className="mt-16 mb-16 ml-[8.5rem] w-full max-w-[501px]">
+          <div className="mt-16 mb-16 ml-[8.5rem] w-full max-w-[501px] sm:mx-auto sm:translate-x-[25vw]">
             <Plx parallaxData={monsterRumpusPlxConf} className="w-full">
               <Image src={monsters1} width="591" height="201" alt="Monsters on a rumpus" />
             </Plx>

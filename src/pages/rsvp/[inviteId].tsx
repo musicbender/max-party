@@ -45,13 +45,11 @@ export const Rsvp: FC<Props> = ({ inviteId }) => {
     setStep(RsvpSteps.HEADCOUNT);
   };
 
-  const handleDecline = async (e: MouseEvent<HTMLAnchorElement>): void => {
+  const handleDecline = async (e: MouseEvent<HTMLAnchorElement>): Promise<void> => {
     e.preventDefault();
 
-    await useUpdateInvite.mutate({
+    useUpdateInvite.mutate({
       attending: Attending.NO,
-      adultsCount,
-      kidsCount,
     });
 
     router.push(`/confirmation?accepted=false&inviteId=${inviteId}`);
@@ -60,7 +58,7 @@ export const Rsvp: FC<Props> = ({ inviteId }) => {
   const handleSubmit = async (e: MouseEvent<HTMLAnchorElement>): Promise<void> => {
     e.preventDefault();
 
-    await useUpdateInvite.mutate({
+    useUpdateInvite.mutate({
       adultsCount,
       kidsCount,
       attending: Attending.YES,
