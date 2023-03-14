@@ -89,7 +89,7 @@
     margin: 0 auto;
     border-radius: 0.5rem;
     text-align: center;
-    @apply px-8 py-16;
+    @apply px-8 py-12;
   }
 
   .go-back {

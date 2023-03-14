@@ -2,6 +2,8 @@ import Button from '@/components/button';
 import DateInfo from '@/components/date-info/date-info';
 import Header from '@/components/header';
 import Layout from '@/components/layout';
+import { useGetInviteQuery } from '@/lib/api-queries';
+import { deniedServerRedirect } from '@/lib/common';
 import {
   bannerPlxConf,
   celebratePlxConf,
@@ -12,6 +14,7 @@ import {
   turningOnePlxConf,
   wildThingsReachPlxConf,
 } from '@/lib/plx-configs';
+import { Attending } from '@/lib/types';
 import phoneIcon from 'icons/phone.svg';
 import smsIcon from 'icons/sms.svg';
 import bannerImg from 'images/banner-2.png';
@@ -27,6 +30,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { FC } from 'react';
 import Plx from 'react-plx';
+import { dehydrate, QueryClient } from 'react-query';
 
 const LocationInfo = dynamic(() => import('../components/location-info'), { ssr: false });
 
@@ -35,6 +39,7 @@ type Props = {
 };
 
 export const Home: FC<Props> = ({ inviteId }) => {
+  const { isLoading, data } = useGetInviteQuery(inviteId);
   return (
     <Layout>
       <Head>
@@ -83,9 +88,15 @@ export const Home: FC<Props> = ({ inviteId }) => {
           </div>
 
           {/* celbrate text */}
-          <div className="h-20 mb-20 celebrate-text">
+          <div className="h-20 mb-28 celebrate-text">
             <Plx parallaxData={celebratePlxConf} className="w-full">
               <p className="font-bold text-center text-2xl max-w-[16rem] m-auto">
+                Join us
+                {data?.name && (
+                  <>
+                    ,<span className="text-primary-600"> {data?.name}</span>,
+                  </>
+                )}{' '}
                 for mischief and fun as we celbrate our king of all{' '}
                 <span className="text-primary-600">wild</span> things
               </p>
@@ -127,14 +138,20 @@ export const Home: FC<Props> = ({ inviteId }) => {
           </div>
 
           {/* rsvp CTA */}
-          <Button
-            href={`/rsvp/${inviteId}`}
-            className="m-auto mb-32 rsvp-cta"
-            variant="primary"
-            size="big"
-          >
-            RSVP Now
-          </Button>
+          {data?.attending === Attending.YES ? (
+            <p className="m-auto mb-40 text-green font-display text-2xl text-center">
+              You've RSVP'd! See you where the wild things are!
+            </p>
+          ) : (
+            <Button
+              href={`/rsvp/${inviteId}`}
+              className="m-auto mb-32 rsvp-cta"
+              variant="primary"
+              size="big"
+            >
+              RSVP Now
+            </Button>
+          )}
 
           <div className="h-40 mb-16 ml-[2rem]">
             <Plx parallaxData={wildThingsReachPlxConf} className="plx-things-3 w-full">
@@ -227,23 +244,23 @@ export const Home: FC<Props> = ({ inviteId }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({ query, res }) => {
-  const { inviteId } = query;
+export const getServerSideProps: GetServerSideProps<Props> = async ({ query }) => {
+  const inviteId = query.inviteId as string;
+  if (!inviteId) return deniedServerRedirect;
 
-  // api call to airtable to check if invite id exists
+  const queryClient = new QueryClient();
 
-  if (!inviteId) {
-    return {
-      redirect: {
-        destination: '/access-denied',
-        permanent: true,
-      },
-    };
-  }
+  const invite = await queryClient.fetchQuery(
+    useGetInviteQuery.getKey(inviteId),
+    useGetInviteQuery.fetcher(inviteId),
+  );
+
+  if (!invite) return deniedServerRedirect;
 
   return {
     props: {
       inviteId: inviteId as string,
+      dehydratedState: dehydrate(queryClient),
     },
   };
 };
