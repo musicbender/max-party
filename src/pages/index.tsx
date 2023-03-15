@@ -18,6 +18,7 @@ import { Attending } from '@/lib/types';
 import phoneIcon from 'icons/phone.svg';
 import smsIcon from 'icons/sms.svg';
 import bannerImg from 'images/banner-2.png';
+import forestBg from 'images/forest-bg.jpg';
 import maxKid from 'images/max-kid.png';
 import monster1 from 'images/monster-1.png';
 import monsters1 from 'images/monsters-1.png';
@@ -251,6 +252,10 @@ export const Home: FC<Props> = ({ inviteId }) => {
             <Plx parallaxData={monsterRumpusPlxConf} className="w-full">
               <Image src={monsters1} width="591" height="201" alt="Monsters on a rumpus" />
             </Plx>
+          </div>
+
+          <div>
+            <Image src={forestBg} width="1920" height="1080" alt="test" />
           </div>
         </div>
       </main>
