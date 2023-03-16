@@ -16,9 +16,9 @@ import {
 } from '@/lib/plx-configs';
 import { Attending } from '@/lib/types';
 import phoneIcon from 'icons/phone.svg';
+import rsvpIcon from 'icons/rsvp.svg';
 import smsIcon from 'icons/sms.svg';
 import bannerImg from 'images/banner-2.png';
-import forestBg from 'images/forest-bg.jpg';
 import maxKid from 'images/max-kid.png';
 import monster1 from 'images/monster-1.png';
 import monsters1 from 'images/monsters-1.png';
@@ -98,7 +98,7 @@ export const Home: FC<Props> = ({ inviteId }) => {
                     ,<span className="text-primary-600"> {data?.name}</span>,
                   </>
                 )}{' '}
-                for mischief and fun as we celbrate our king of all{' '}
+                for mischief and fun as we celebrate our king of all{' '}
                 <span className="text-primary-600">wild</span> things
               </p>
             </Plx>
@@ -233,7 +233,7 @@ export const Home: FC<Props> = ({ inviteId }) => {
                   />
                   Text Dee Dee
                 </Button>
-                <Button href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}>
+                <Button href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`} className="mb-4">
                   <Image
                     className="inline-block mr-2"
                     src={phoneIcon}
@@ -243,6 +243,23 @@ export const Home: FC<Props> = ({ inviteId }) => {
                   />
                   Call Dee Dee
                 </Button>
+                {/* rsvp CTA bottom */}
+                {data?.attending !== Attending.YES && (
+                  <Button
+                    href={`/rsvp/${inviteId}`}
+                    variant="primary"
+                    className="inline-block mr-2 min-w-[11.35rem]"
+                  >
+                    <Image
+                      className="inline-block mr-2"
+                      src={rsvpIcon}
+                      width="28"
+                      height="28"
+                      alt="Text icon"
+                    />
+                    RSVP Now!{'   '}
+                  </Button>
+                )}
               </div>
             </div>
           </div>
@@ -252,10 +269,6 @@ export const Home: FC<Props> = ({ inviteId }) => {
             <Plx parallaxData={monsterRumpusPlxConf} className="w-full">
               <Image src={monsters1} width="591" height="201" alt="Monsters on a rumpus" />
             </Plx>
-          </div>
-
-          <div>
-            <Image src={forestBg} width="1920" height="1080" alt="test" />
           </div>
         </div>
       </main>
