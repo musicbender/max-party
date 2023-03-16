@@ -44,7 +44,7 @@ export const Home: FC<Props> = ({ inviteId }) => {
   return (
     <Layout>
       <Head>
-        <title>Max turns 1 celebration</title>
+        <title>Let the wild rumpus start!</title>
       </Head>
       <main className="flex flex-col">
         <Header />

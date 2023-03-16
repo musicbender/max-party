@@ -9,7 +9,7 @@ export const Confirmation: FC = () => {
   return (
     <Layout>
       <Head>
-        <title>See you at Max's First Birthday!</title>
+        <title>Sorry, you can't see this page</title>
       </Head>
       <main className="flex flex-col">
         <div className="flex flex-col h-[100vh] overflow-hidden p-4">

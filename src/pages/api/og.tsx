@@ -29,7 +29,7 @@ export default async function () {
           className="absolute w-full top-0 left-0"
         />
         <div tw="flex absolute">
-          <div tw="flex flex-col mt-4 w-[95%] py-12 px-4 justify-between p-8">
+          <div tw="flex flex-col mt-14 ml-8 w-[95%] py-12 px-4 justify-between p-8">
             <h1 tw="flex flex-col text-7xl sm:text-[12.1rem] mb-16 font-bold tracking-tight text-white text-left">
               Max's first birthday!
             </h1>
