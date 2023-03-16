@@ -23,7 +23,7 @@ export default async function () {
         }}
       >
         <img
-          src="https://maxwjacobs.com/_ipx/w_1200,q_75/%2F_next%2Fstatic%2Fmedia%2Fforest-bg.a78fbc4c.jpg?url=%2F_next%2Fstatic%2Fmedia%2Fforest-bg.a78fbc4c.jpg&w=1200&q=75"
+          src="https://i.ibb.co/cCrnxzg/forest-bg.jpg"
           width="1200"
           height="630"
           className="absolute w-full top-0 left-0"
@@ -56,7 +56,7 @@ export default async function () {
                 }}
               >
                 <span
-                  tw="flex py-6 px-8 bg-orange-500 text-7xl"
+                  tw="flex py-6 px-8 bg-amber-400 text-7xl"
                   style={{
                     borderRadius: '0.3rem',
                     borderBottom: '2px solid rgb(40, 40, 40)',
