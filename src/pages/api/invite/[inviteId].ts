@@ -18,7 +18,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   switch (req.method) {
     case 'GET': {
-      console.log('GET', inviteId);
       try {
         const invite = await table.find(inviteId as string);
         debugger;
