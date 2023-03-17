@@ -1,3 +1,1 @@
-export const isDev = process.env.NODE_ENV !== 'production';
-
-export const serverHostname = isDev ? 'http://localhost:3000' : 'https://maxwjacobs.com';
+export const serverHostname = process.env.NEXT_PUBLIC_HOSTNAME || 'http://localhost:3000';

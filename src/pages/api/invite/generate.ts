@@ -1,3 +1,4 @@
+import { serverHostname } from '@/lib/config';
 import Airtable from 'airtable';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -18,10 +19,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   switch (req.method) {
     case 'GET': {
-      let output: {
-        name: string;
-        shareUrl: string;
-      }[] = [];
+      let listItemsHtml: string = '';
 
       try {
         table
@@ -32,14 +30,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             function page(records, fetchNextPage) {
               records.forEach((record) => {
                 const id = record.getId();
-                const shareUrl = `https://maxwjacobs.com?inviteId=${id}`;
-                output = [
-                  ...output,
-                  {
-                    name: record.get('name') as string,
-                    shareUrl,
-                  },
-                ];
+                const shareUrl = `${serverHostname}?inviteId=${id}`;
+                listItemsHtml += `<li style="margin: 1.5rem 0;"><strong>${
+                  (record.get('name') as string) || '???'
+                }:</strong> ${shareUrl}</li>`;
               });
 
               // To fetch the next page of records, call `fetchNextPage`.
@@ -52,8 +46,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                 console.error(err);
                 return;
               }
-
-              res.status(200).send(JSON.stringify(output));
+              res.setHeader('Content-Type', 'text/html');
+              res
+                .status(200)
+                .send(
+                  `<html lang="en"><body style="padding: 2rem;background-color: rgb(255, 251, 235)"><ul>${listItemsHtml}</ul></body></html>`,
+                );
             },
           );
       } catch (err: any) {
